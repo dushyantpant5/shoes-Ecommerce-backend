@@ -7,7 +7,7 @@ const stripe = Stripe(process.env.STRIPE_SEC_KEY)
 
 const router = express.Router()
 
-router.post('/create-checkout-session', async (req, res) => {
+router.post('api/create-checkout-session', async (req, res) => {
   
   const priceInPaise = req.body.price;
   const priceInRupee = priceInPaise*100;

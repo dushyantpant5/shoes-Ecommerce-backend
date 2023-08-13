@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 require('dotenv').config()
 const express = require("express");
 const app = express();
-const port = 'https://shoes-ecommerce-backend.vercel.app/' || 3300;
+const port = 3300 ||  'https://shoes-ecommerce-backend.vercel.app/';
 
 const stripe = require("./routes/stripe_payment")
 
