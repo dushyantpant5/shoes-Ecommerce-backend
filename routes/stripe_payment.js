@@ -26,8 +26,8 @@ router.post('/create-checkout-session', async (req, res) => {
     },
   ],
   mode: 'payment',
-  success_url: `${process.env.FRONT_END_DEV_URL || process.env.FRONT_END_URL }success`,
-  cancel_url: `${process.env.FRONT_END_DEV_URL || process.env.FRONT_END_URL }cart`,
+  success_url: `${process.env.FRONT_END_URL || process.env.FRONT_END_DEV_URL}success`,
+  cancel_url: `${process.env.FRONT_END_URL || process.env.FRONT_END_DEV_URL}cart`,
   });
 
   res.send({url:session.url});
