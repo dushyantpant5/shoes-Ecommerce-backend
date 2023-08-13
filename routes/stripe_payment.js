@@ -7,7 +7,7 @@ const stripe = Stripe(process.env.STRIPE_SEC_KEY)
 
 const router = express.Router()
 
-router.post('api/create-checkout-session', async (req, res) => {
+router.post('/create-checkout-session', async (req, res) => {
   
   const priceInPaise = req.body.price;
   const priceInRupee = priceInPaise*100;
@@ -26,8 +26,8 @@ router.post('api/create-checkout-session', async (req, res) => {
     },
   ],
   mode: 'payment',
-  success_url: `${process.env.FRONT_END_URL || process.env.FRONT_END_DEV_URL}success`,
-  cancel_url: `${process.env.FRONT_END_URL || process.env.FRONT_END_DEV_URL}cart`,
+  success_url: `${process.env.FRONT_END_DEV_URL}success`,
+  cancel_url: `${process.env.FRONT_END_DEV_URL}cart`,
   });
 
   res.send({url:session.url});
