@@ -3,7 +3,7 @@ const express = require('express')
 const Stripe = require('stripe')
 
 
-const stripe = Stripe(process.env.STRIPE_SEC_KEY)
+const stripe = Stripe('sk_test_51NdaXNSBznKkRBRD3zO9a2TFGUKjL5U2qbXjYzVnVEk52ncEV0P3XJ9yHutet4WqQVPhWKsvyIF0aDZ5TcLoOsCI00W9LvnOgX')
 
 const router = express.Router()
 
