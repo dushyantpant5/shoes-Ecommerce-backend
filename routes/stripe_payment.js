@@ -3,7 +3,7 @@ const express = require('express')
 const Stripe = require('stripe')
 
 
-const stripe = Stripe('sk_test_51NdaXNSBznKkRBRD3zO9a2TFGUKjL5U2qbXjYzVnVEk52ncEV0P3XJ9yHutet4WqQVPhWKsvyIF0aDZ5TcLoOsCI00W9LvnOgX')
+const stripe = Stripe(process.env.STRIPE_SEC_KEY)
 
 const router = express.Router()
 
@@ -26,8 +26,8 @@ router.post('/create-checkout-session', async (req, res) => {
     },
   ],
   mode: 'payment',
-  success_url: 'http://localhost:3000/success',
-  cancel_url: 'http://localhost:3000/cart',
+  success_url: `${process.env.FRONT_END_DEV_URL || process.env.FRONT_END_URL }success`,
+  cancel_url: `${process.env.FRONT_END_DEV_URL || process.env.FRONT_END_URL }cart`,
   });
 
   res.send({url:session.url});

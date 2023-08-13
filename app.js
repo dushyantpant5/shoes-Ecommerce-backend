@@ -6,7 +6,7 @@ const corsOptions = {
 };
 
 const bodyParser = require('body-parser');
-
+require('dotenv').config()
 const express = require("express");
 const app = express();
 const port = 3300;
@@ -17,6 +17,10 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 app.use('/api/stripe',stripe)
+
+app.get('/',(req,res)=>{
+  res.send("Welcome to backend")
+})
 
 
 app.listen(port, () => {
