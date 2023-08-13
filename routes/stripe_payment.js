@@ -8,7 +8,18 @@ const stripe = Stripe(process.env.STRIPE_SEC_KEY)
 const router = express.Router()
 
 router.post('/create-checkout-session', async (req, res) => {
-    
+  
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+  
+
   const priceInPaise = req.body.price;
   const priceInRupee = priceInPaise*100;
 
