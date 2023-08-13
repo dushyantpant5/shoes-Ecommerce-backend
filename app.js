@@ -23,9 +23,7 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/test',(req,res)=>{
-  res.send("Test")
-
-  res.send({url:'https://www.google.com/'});
+ res.send({url:'https://www.google.com/'});
 
 })
 
