@@ -22,6 +22,13 @@ app.get('/',(req,res)=>{
   res.send("Welcome to backend")
 })
 
+app.get('/test',(req,res)=>{
+  res.send("Test")
+
+  res.send({url:'https://www.google.com/'});
+
+})
+
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
